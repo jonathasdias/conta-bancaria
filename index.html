@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- 
+        layout
+
+        Fazer um layout em que usuário vai ter uma tela e très botões, uma tela de do saldo de quanto ele tem na 
+        conta, Em baixo um botão de depositar saldo, quando clicar no botão aparecer uma tela de deposito e saques, outro
+        botão de sacar e outro de ver os recebimento de deposito e de saldos.
+
+        Ver estrutura de classe para a utilização no chat gpt.
+     -->
+
+     <!-- Perquisar tudo isso no chat:
+        Desenvolvimento orientado a objetos, testes automatizados, integração contínua e padrões de projeto.
+    -->
+    <header>
+        <div class="user">
+            <i class="fa-sharp fa-solid fa-circle-user"></i>
+        </div>
+    </header>
+
+    <main>
+        <!-- Tela -->
+        <section id="container">
+            <div class="tela-saldo-atual">
+                <span class="saldo">R$ 0,00</span>
+            </div>
+        </section>
+        <!-- fim da tela -->
+        
+        <!-- Conteúdos e mensagens ou os extratos -->
+        <section id="conteudos"></section>
+        <!-- fim dos Conteúdos e mensagens -->
+
+        <!-- Cards -->
+        <div id="dv-sacar" class="dv-back esconder">
+            <section id="card-sacar" class="cards">
+                <button class="btn-fechar">
+                    <i class="fa-sharp fa-solid fa-xmark"></i>
+                </button>
+                <!-- quando clicar no botão de fechar, colocar a class esconder no dv-sacar -->
+                <label for="input-saque" class="labels-card">Quanto Quer Sacar ?</label>
+                <input type="number" class="inputs-card" data-input-sacar="input-saque">
+                <button class="btn-card-sacar btns-card">Sacar</button>
+            </section>
+        </div>
+
+        <div id="dv-depositar" class="dv-back esconder">
+            <section id="card-depositar" class="cards">
+                <button class="btn-fechar">
+                    <i class="fa-sharp fa-solid fa-xmark"></i>
+                </button>
+                <label for="input-depositar" class="labels-card">Quanto Quer Depositar ?</label>
+                <input type="number" class="inputs-card" data-input-depositar="input-depositar">
+                <button class="btn-card-depositar btns-card">Depositar</button>
+            </section>
+        </div>
+
+        <div id="dv-extrato" class="dv-back esconder">
+            <section id="card-extrato">
+                <button class="btn-fechar">
+                    <i class="fa-sharp fa-solid fa-xmark"></i>
+                </button>
+            </section>
+        </div>
+        <!-- fim cards -->
+
+        <!-- navegação -->
+        <div class="dv-btns">
+            <button class="btn-depositar btns">
+                <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i>
+                Depositar
+            </button>
+            <button class="btn-extratos btns">
+                <i class="fa-sharp fa-solid fa-building-columns"></i>
+                Extratos
+            </button>
+            <button class="btn-sacar btns">
+                <i class="fa-sharp fa-solid fa-money-bill"></i>
+                Sacar
+            </button>
+            <!-- mudar classe desses botões para btn-abrir-depositar, extratos, sacar -->
+        </div>
+        <!-- fim da navegação -->
+    </main>
+
+    <script src="./javascript/script.js"></script>
+</body>
+</html>

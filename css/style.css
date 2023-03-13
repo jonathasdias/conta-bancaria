@@ -1,0 +1,187 @@
+* {margin:0;padding:0;box-sizing:border-box;}
+
+header {
+    height: 4rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 10px;
+    background-color: rgb(24, 23, 23);
+}
+
+.user {
+    font-size: 3rem;
+    color: rgb(218, 207, 207);
+    cursor: pointer;
+}
+
+body {
+    background-color: rgb(177, 168, 168);
+}
+
+#container {
+    height: 50vh;
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    background: linear-gradient(rgb(18, 75, 18) 40%, rgb(177, 168, 168) 30%);
+
+}
+
+.tela-saldo-atual {
+    width: 50%;
+    height: 10rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(4, 97, 4);
+    margin: 3rem auto;
+    box-shadow: 0 5px 16px black;
+    border-radius: 15px;
+}
+
+.saldo {
+    font-size: 40px;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+#conteudos {
+    padding: 10px;
+}
+
+.dv-btns {
+    width: 100%;
+    height: 4rem;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(24, 23, 23);
+}
+
+.btns {
+    padding: 4px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background-color: rgba(218, 211, 211, 0.781);
+    transition: all .6s;
+}
+.btns:hover {
+    transform: scale(1.2);
+    background-color: rgba(233, 227, 227, 0.911);
+}
+
+.esconder {
+    visibility: hidden;
+}
+
+/* cards */
+
+.dv-back {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    place-items: center;
+}
+
+.cards {
+    width: 60%;
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.btn-fechar {
+    padding: 2px 5px;
+    border-radius: 100%;
+    border: none;
+    font-weight: 1px;
+    background-color: transparent;
+    cursor: pointer;
+    float: right;
+}
+.btn-fechar:hover {
+    background-color: rgba(6, 97, 6, 0.781);
+}
+
+.labels-card {
+    font-size: 30px;
+    font-weight: bolder;
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.inputs-card {
+    width: 100%;
+    height: 36px;
+    font-size: 20px;
+    padding-left: 6px;
+}
+
+.btns-card {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-top: 8px;
+    border-radius: 10px;
+    border: none;
+}
+.btns-card:hover {
+    border: 1px solid black;
+    background-color: rgba(241, 234, 234, 0.918);
+}
+
+#card-extrato {
+    width: 60%;
+    height: 30vh;
+    max-height: 60vh;
+    padding: 5px;
+    background-color: green;
+    border-radius: 16px;
+    border: 2px solid black;
+    overflow-y: auto;
+    box-shadow: inset 1px 1px 10px black;
+}
+
+.extrato {
+    width: 100%;
+    height: 50px;
+    padding: 5px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    margin: 6px 0;
+}
+
+.dv-estados-extrato {
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+.valor-extrato {
+    margin: 0 20px;
+}
+
+.dv-dataHora-extrato {
+    height: 100%;
+}
+
+.hora-extrato {
+    margin: 0 10px;
+}
