@@ -24,7 +24,7 @@
     -->
     <header>
         <div class="user">
-            <i class="fa-sharp fa-solid fa-circle-user"></i>
+            <i class="fa-sharp fa-solid fa-circle-user" aria-label="Ícone de usuário"></i>
         </div>
     </header>
 
@@ -67,7 +67,7 @@
 
         <div id="dv-extrato" class="dv-back esconder">
             <section id="card-extrato">
-                <button class="btn-fechar">
+                <button class="btn-fechar" type="button">
                     <i class="fa-sharp fa-solid fa-xmark"></i>
                 </button>
             </section>
@@ -75,7 +75,7 @@
         <!-- fim cards -->
 
         <!-- navegação -->
-        <div class="dv-btns">
+        <section class="dv-btns">
             <button class="btn-depositar btns">
                 <i class="fa-sharp fa-solid fa-arrow-up-from-bracket"></i>
                 Depositar
@@ -89,10 +89,10 @@
                 Sacar
             </button>
             <!-- mudar classe desses botões para btn-abrir-depositar, extratos, sacar -->
-        </div>
+        </section>
         <!-- fim da navegação -->
     </main>
 
-    <script src="./javascript/script.js"></script>
+    <script type="module" src="./javascript/script.js"></script>
 </body>
 </html>

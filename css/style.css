@@ -32,18 +32,22 @@ body {
     height: 10rem;
     padding: 10px;
     display: flex;
-    justify-content: center;
     align-items: center;
     background-color: rgb(4, 97, 4);
     margin: 3rem auto;
     box-shadow: 0 5px 16px black;
     border-radius: 15px;
+    overflow-x: auto;
+}
+.tela-saldo-atual::-webkit-scrollbar {
+    display: none;
 }
 
 .saldo {
     font-size: 40px;
     font-weight: bolder;
     display: inline-block;
+    margin: auto;
 }
 
 #conteudos {

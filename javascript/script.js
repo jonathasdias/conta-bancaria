@@ -1,18 +1,24 @@
-let inputValorSaque = document.querySelector('[data-input-sacar]');
-let inputValorDeposito = document.querySelector('[data-input-depositar]');
-let spanSaldo = document.querySelector('.saldo');
+"use strict"
+// import da data e da hora.
+import DataHora from "./datahora.js";
 
-let dv_depositar = document.getElementById('dv-depositar');
-let dv_sacar = document.getElementById('dv-sacar');
-let dv_extrato = document.getElementById('dv-extrato');
+const inputValorSaque = document.querySelector('[data-input-sacar]');
+const inputValorDeposito = document.querySelector('[data-input-depositar]');
+const spanSaldo = document.querySelector('.saldo');
 
-let btnsChamarCards = document.querySelectorAll('.btns');
+const dv_depositar = document.getElementById('dv-depositar');
+const dv_sacar = document.getElementById('dv-sacar');
+const dv_extrato = document.getElementById('dv-extrato');
 
-let btnFecharCard = document.querySelectorAll('.btn-fechar')
-let btnsCard = document.querySelectorAll('.btns-card');
+const btnsChamarCards = document.querySelectorAll('.btns');
 
-let card_extrato = document.getElementById('card-extrato')
+const btnFecharCard = document.querySelectorAll('.btn-fechar')
+const btnsCard = document.querySelectorAll('.btns-card');
 
+const card_extrato = document.getElementById('card-extrato')
+
+// Lembre de salvar o valorAtual no localStorage, se posiivel salvar os extratos também e colocar uma data limite,
+// para os dados dos extratos serem removidos do localStorage
 let valorAtual = 0;
 
 function depositar(){
@@ -29,37 +35,7 @@ function sacar(){
     }
 }
 
-function acrescentarZero(num) {
-    if (num < 10) {
-        return "0"+num
-    } else {
-        return num
-    }
-}
-
-class DataHora {
-    constructor(){
-        this.dataObj = new Date()
-    }
-
-    get data(){
-        let dia = this.dataObj.getDate()
-        let mes = this.dataObj.getMonth() +1
-        let ano = this.dataObj.getFullYear()
-
-        return `${acrescentarZero(dia)}/${acrescentarZero(mes)}/${ano}`
-    }
-
-    get horas(){
-
-        let hora = this.dataObj.getHours()
-        let minuto = this.dataObj.getMinutes()
-
-        return `${acrescentarZero(hora)}:${acrescentarZero(minuto)}`
-    }
-}
-
-function criarStrato({valor,cor,estado}){
+function criarStrato(saldo,{cor,estado}){
     // valorInput, estadoValor
     let dataHora = new DataHora();
 
@@ -75,7 +51,7 @@ function criarStrato({valor,cor,estado}){
     let valor_extrato = document.createElement('span')
     valor_extrato.classList.add('valor-extrato')
     valor_extrato.style.color = cor
-    valor_extrato.innerHTML = parseFloat(valor).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
+    valor_extrato.innerHTML = parseFloat(saldo).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })
 
     let estado_extrato = document.createElement('span')
     estado_extrato.classList.add('estado-extrato')
@@ -89,14 +65,14 @@ function criarStrato({valor,cor,estado}){
     hora_extrato.classList.add('hora-extrato')
     hora_extrato.innerHTML = dataHora.horas
 
+    dv_estados_extrato.appendChild(estado_extrato)
+    dv_estados_extrato.appendChild(valor_extrato)
+
     dv_dataHora_extrato.appendChild(data_extrato)
     dv_dataHora_extrato.appendChild(hora_extrato)
-
-    dv_estados_extrato.appendChild(valor_extrato)
-    dv_estados_extrato.appendChild(estado_extrato)
     
-    extrato.appendChild(dv_dataHora_extrato)
     extrato.appendChild(dv_estados_extrato)
+    extrato.appendChild(dv_dataHora_extrato)
     
     card_extrato.appendChild(extrato)
 }
@@ -130,12 +106,10 @@ btnsChamarCards.forEach((btn)=>{
 
 let coresExtrato = {
     extratoDeposito: {
-        valor: inputValorDeposito.value,
         cor:'green',
         estado: 'Dinheiro Depositado'
     },
     extratoSaque: {
-        valor: inputValorSaque.value,
         cor:'red',
         estado: 'Dinheiro Sacado'
     }
@@ -145,24 +119,20 @@ let coresExtrato = {
 btnsCard.forEach((btn)=>{
     btn.addEventListener('click', function(){
 
-        // caso forem os btns especificados nos ifs e se o input dele for maior que 0 chama o if, caso contrario não daz nada.
-        // btn.classList.contains('btn-card-depositar') && input.value > 0
-        // criar uma função de validação do input caso ele esteja vazio, ele n fazer nada para n retornar NaN, e char essa
-        // função aqui nos evento de click desses botões abaixo.
-        if(btn.classList.contains('btn-card-depositar')){
+        if(btn.classList.contains('btn-card-depositar') && inputValorDeposito.value > 0){
 
             depositar()
-            criarStrato(coresExtrato.extratoDeposito)
-            console.log(coresExtrato.extratoDeposito.valor);
-            inputValorDeposito.value = ''
+            criarStrato(inputValorDeposito.value, coresExtrato.extratoDeposito)
             inputValorDeposito.focus()
+            inputValorDeposito.value = ''
 
-        } else if(btn.classList.contains('btn-card-sacar')) {
+        } else if(btn.classList.contains('btn-card-sacar') && inputValorSaque.value > 0) {
     
             sacar()
-            criarStrato(coresExtrato.extratoSaque)
-            inputValorSaque.value = ''
+            criarStrato(inputValorSaque.value ,coresExtrato.extratoSaque)
             inputValorSaque.focus()
+            inputValorSaque.value = ''
+
         }
     })
 })
