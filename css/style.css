@@ -1,4 +1,4 @@
-* {margin:0;padding:0;box-sizing:border-box;}
+* {margin:0;padding:0;box-sizing:border-box; font-family: sans-serif;}
 
 header {
     height: 4rem;
@@ -57,7 +57,7 @@ body {
 .dv-btns {
     width: 100%;
     height: 4rem;
-    border: 2px solid black;
+    padding: 6px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,7 +109,6 @@ body {
     padding: 2px 5px;
     border-radius: 100%;
     border: none;
-    font-weight: 1px;
     background-color: transparent;
     cursor: pointer;
     float: right;
@@ -162,28 +161,33 @@ body {
 
 .extrato {
     width: 100%;
-    height: 50px;
     padding: 5px;
     background-color: white;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     border: 2px solid black;
     margin: 6px 0;
+    overflow-x: auto;
 }
 
 .dv-estados-extrato {
-    font-size: 26px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 22px;
     font-weight: bolder;
 }
 
 .valor-extrato {
-    margin: 0 20px;
+    margin-left: 10px;
 }
 
 .dv-dataHora-extrato {
     height: 100%;
+    margin-top: 10px;
 }
 
 .hora-extrato {
